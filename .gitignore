@@ -15,7 +15,7 @@ hs_err_pid*
 
 /out
 
-/src/hibernate.cfg.xml
+/lib
 .idea/**/workspace.xml
 .idea/**/tasks.xml
 .idea/dictionaries
