@@ -14,28 +14,19 @@
  * limitations under the License.
  */
 
-package com.amaoamao.MaomaoChat.Controller;
+package com.amaoamao.MaomaoChat;
 
-public class Message {
+import java.util.Random;
 
-    private String from;
-    private String text;
-
-    public String getFrom() {
-        return from;
+public class Helper {
+    public static String RandomString(int length) {
+        String str = "0123456789";
+        Random random = new Random();
+        StringBuilder buf = new StringBuilder();
+        for (int i = 0; i < length; i++) {
+            int num = random.nextInt(10);
+            buf.append(str.charAt(num));
+        }
+        return buf.toString();
     }
-
-    public void setFrom(String from) {
-        this.from = from;
-    }
-
-    public String getText() {
-        return text;
-    }
-
-    public void setText(String text) {
-        this.text = text;
-    }
-
-    // getters and setters
 }

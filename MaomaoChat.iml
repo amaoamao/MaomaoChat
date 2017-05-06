@@ -31,5 +31,7 @@
     <orderEntry type="library" name="Spring MVC-4.3.8.RELEASE" level="project" />
     <orderEntry type="library" name="org.springframework:spring-websocket:4.3.8.RELEASE" level="project" />
     <orderEntry type="library" name="com.google.code.gson:gson:2.8.0" level="project" />
+    <orderEntry type="library" name="Java EE 6-Java EE 6" level="project" />
+    <orderEntry type="library" name="taobao" level="project" />
   </component>
 </module>
