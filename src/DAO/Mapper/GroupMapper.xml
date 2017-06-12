@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper  namespace="DAO.Mapper.GroupMapper">
+
+    <insert id="insert" parameterType="Group" keyColumn="id">
+        INSERT INTO `Group`(id, name, intro, founder)
+        VALUES (#{id}, #{name}, #{intro}, #{founder})
+    </insert>
+
+    <delete id="delete" parameterType="Group">
+        DELETE FROM GroupMem
+        WHERE grp_id = #{id};
+
+        DELETE FROM `Group`
+        WHERE id = #{id};
+    </delete>
+
+    <update id="update" parameterType="Group">
+        UPDATE `Group`
+        SET name = #{name} AND intro = #{intro}
+        WHERE id = #{id};
+    </update>
+
+    <select id="getGroup" parameterType="int">
+        SELECT *
+        FROM `Group`
+        WHERE id = #{id};
+    </select>
+
+
+
+</mapper>

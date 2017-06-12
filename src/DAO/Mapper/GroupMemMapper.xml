@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper  namespace="DAO.Mapper.GroupMemMapper">
+
+    <resultMap id="memMap" type="Mem">
+        <result column="usr_id" property="usr_id"/>
+        <result column="usr_phone" property="usr_phone"/>
+    </resultMap>
+
+    <insert id="insert" parameterType="GroupMem">
+        INSERT INTO GroupMem(grp_id, usr_id, usr_phone)
+        VALUES (#{grp_id}, #{usr_id}, #{usr_phone})
+    </insert>
+
+    <delete id="delete" parameterType="GroupMem">
+        DELETE FROM GroupMem
+        WHERE grp_id = #{grp_id} AND usr_phone = #{usr_phone}
+    </delete>
+
+    <select id="getMemsOfGrp" parameterType="int" resultMap="memMap">
+        SELECT usr_id,usr_phone
+        FROM GroupMem
+        WHERE grp_id = #{grp_id}
+    </select>
+
+    <select id="getGrps" parameterType="String" resultType="Integer">
+        SELECT usr_phone
+        FROM GroupMem
+        WHERE usr_phone = #{usr_phone};
+    </select>
+
+</mapper>

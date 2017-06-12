@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper  namespace="DAO.Mapper.RelationMapper">
+    
+    <resultMap id="relationMap" type="Relation">
+        <result column="host" property="host"/>
+        <result column="friend" property="friend"/>
+        <result column="remark" property="remark"/>
+    </resultMap>
+    
+    <insert id="insert" parameterType="Relation">
+        INSERT INTO Relation(host, friend,remark)
+        VALUES (#{host,}, #{friend}, #{remark})
+    </insert>
+
+    <delete id="delete" parameterType="Relation">
+        DELETE FROM Relation
+        WHERE host = #{host} AND friend = #{friend}
+    </delete>
+
+    <select id="getFriendsOfUser" parameterType="String" resultMap="relationMap">
+        SELECT *
+        FROM Relation
+        WHERE host = #{host}
+    </select>
+
+
+
+</mapper>

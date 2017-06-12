@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper  namespace="DAO.Mapper.ChannelMemMapper">
+
+    <resultMap id="memMap" type="Mem">
+        <result column="usr_id" property="usr_id"/>
+        <result column="usr_phone" property="usr_phone"/>
+    </resultMap>
+
+    <insert id="insert" parameterType="ChannelMem">
+        INSERT INTO ChannelMem(chn_id, usr_id)
+        VALUES (#{chn_id}, #{usr_id});
+    </insert>
+
+    <delete id="delete" parameterType="ChannelMem">
+        DELETE FROM ChannelMem
+        WHERE chn_id = #{chn_id} AND usr_id = #{usr_id};
+    </delete>
+
+    <select id="getMemsOfChn" parameterType="int" resultMap="memMap">
+        SELECT usr_id,usr_phone
+        FROM ChannelMem
+        WHERE chn_id = #{chn_id};
+    </select>
+
+    <select id="getChns" parameterType="String" resultType="Integer">
+        SELECT usr_phone
+        FROM ChannelMem
+        WHERE usr_phone = #{usr_phone};
+    </select>
+
+</mapper>

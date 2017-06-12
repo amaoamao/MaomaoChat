@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper  namespace="DAO.Mapper.MsgRecordMapper">
+
+    <resultMap id="msgRecordMap" type="MsgRecord">
+        <result column="host" property="host"/>
+        <result column="sender" property="sender"/>
+        <result column="receiver" property="receiver"/>
+        <result column="hasSent" property="hasSent"/>
+        <result column="dateTime" property="dateTime"/>
+        <result column="content" property="content"/>
+        <result column="content_type" property="content_type"/>
+        <result column="receiver_type" property="receiver_type"/>
+    </resultMap>
+
+    <insert id="insert" parameterType="MsgRecord">
+        INSERT INTO MsgRecord(host, sender, receiver, hasSent, dateTime, content, content_type, receiver_type)
+        VALUES (#{host},#{sender}, #{receiver},#{hasSent},#{dateTime},#{content},#{content_type},#{receiver_type})
+    </insert>
+
+    
+    <select id="getMsgsOfUser" parameterType="String" resultMap="msgRecordMap">
+        SELECT *
+        FROM MsgRecord
+        WHERE host = #{host} AND hasSent = FALSE;
+    </select>
+
+    <delete id="delete" parameterType="MsgRecord">
+        DELETE
+        FROM MsgRecord
+        WHERE host = #{host} AND sender = #{sender} AND receiver_type = #{receiver_type} AND dateTime = #{dateTime}
+    </delete>
+
+</mapper>
