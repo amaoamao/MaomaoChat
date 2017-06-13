@@ -1,7 +1,7 @@
 # MaomaoChat
 项目组成员：  
 - 毛昌越 2015141463127
-- 姜佳豪 2015141463224
+- 姜佳豪 2015141463070
 
 ## 项目地址
 [https://maomaochat.tech](https://maomaochat.tech)  
